@@ -1,6 +1,9 @@
 ---
 layout: post
 title: 测试
+permalink: 2.html
 ---
 
 # 测试
+
+[你好](1.html)
