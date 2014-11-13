@@ -6,4 +6,12 @@ permalink: 2.html
 
 # 测试
 
-[你好](1.html)
+[你好](3.html)
+
+```ruby
+class AAA
+  def bbb
+    p 'ccc'
+  end
+end
+```

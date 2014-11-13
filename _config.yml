@@ -6,6 +6,8 @@ baseurl: "/jekyll-miniwiki" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 github_username: ben7th
 
+encoding: UTF-8
+
 # github 风格 markdown
 pygments: true
 markdown: redcarpet

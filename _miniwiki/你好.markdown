@@ -1,7 +1,10 @@
 ---
 layout: post
 title: 你好
-permalink: 1.html
+permalink: 3.html
 ---
 
 # 你好
+
+[测试](2.html)
+[你好](3.html)
