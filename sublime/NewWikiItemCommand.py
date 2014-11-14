@@ -4,13 +4,16 @@ from sublime import active_window
 from os import path
 
 class NewWikiItemCommand(sublime_plugin.TextCommand):
+  WIKI_DIR            = path.join(sublime.active_window().folders()[0], "_miniwiki")
+  WIKI_DIR_NOT_EXISTS = "wiki条目文件夹不存在！"
+  INPUT_PANEL_TITLE   = "添加新的wiki条目: "
+  ITEM_EXISTS         = "文件已存在！"
+
   def run(self, edit):
-    self.wiki_dir = path.join(sublime.active_window().folders()[0], "_miniwiki")
+    if not path.exists(self.WIKI_DIR):
+      return sublime.error_message(self.WIKI_DIR_NOT_EXISTS)
 
-    if not path.exists(self.wiki_dir):
-      return sublime.error_message("wiki条目文件夹不存在！")
-
-    active_window().show_input_panel("添加新的wiki条目", "", self.new_item, None, None)
+    active_window().show_input_panel(self.INPUT_PANEL_TITLE, "", self.new_item, None, None)
 
   def generate_permalink(self):
     return "%i.html" % (round(time.time()))
@@ -24,10 +27,11 @@ class NewWikiItemCommand(sublime_plugin.TextCommand):
            ) % (item_name, self.generate_permalink())
   
   def new_item(self, item_name):
-    file_name = path.join(self.wiki_dir, "%s.markdown" % item_name)
+    file_name = path.join(self.WIKI_DIR, "%s.markdown" % item_name)
   
     if os.path.isfile(file_name):
-      return sublime.error_message("文件已存在！")
+      active_window().open_file(file_name)
+      return sublime.error_message(self.ITEM_EXISTS)
 
     file = open(file_name, "w")
     
