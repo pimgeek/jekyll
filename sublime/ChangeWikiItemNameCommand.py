@@ -5,19 +5,30 @@ import sublime, sublime_plugin, os, re
 class ChangeWikiItemNameCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     # 获取工作目录
-    work_folder = sublime.active_window().folders()[0]
-    wiki_item_folder = os.path.join(work_folder, "_miniwiki")
+    work_folder         = sublime.active_window().folders()[0]
+    wiki_item_folder    = os.path.join(work_folder, "_miniwiki")
     current_file_folder = os.path.dirname(self.view.file_name())
-    current_file_name = os.path.split(self.view.file_name())[1]
-    extname = os.path.splitext(current_file_name)[1]
 
-    if wiki_item_folder != current_file_folder or extname != ".markdown":
-      return
-    sublime.active_window().show_input_panel("change current wiki markdown file name", current_file_name, self.change_wiki_item_name, None, None)
+    current_file_base_name = self.get_file_base_name(self.view.file_name())
+    current_file_extname   = self.get_file_extname(self.view.file_name())
+
+    if wiki_item_folder != current_file_folder:
+      return sublime.error_message(u"当前文件不是 miniwiki markdown 文件")
+    if current_file_extname != ".markdown":
+      return sublime.error_message(u"当前文件不是 miniwiki markdown 文件")
+
+    sublime.active_window().show_input_panel("change current wiki markdown file name", current_file_base_name, self.change_wiki_item_name, None, None)
 
   def change_wiki_item_name(self, text):
+    current_file_base_name = self.get_file_base_name(self.view.file_name())
+    if text == current_file_base_name:
+      return
+    if text in self.get_wiki_file_base_names():
+      return sublime.error_message(u"%s 文件已经存在" % text)
+
     current_file_folder = os.path.dirname(self.view.file_name())
-    new_file_path       = os.path.join(current_file_folder, text)
+    new_file_name = "%s.markdown" % text
+    new_file_path = os.path.join(current_file_folder, new_file_name)
 
     old_file_base_name = self.get_file_base_name(self.view.file_name())
     new_file_base_name = self.get_file_base_name(new_file_path)
@@ -60,3 +71,17 @@ class ChangeWikiItemNameCommand(sublime_plugin.TextCommand):
   def get_file_base_name(self, file_path):
     file_name = os.path.split(file_path)[1]
     return os.path.splitext(file_name)[0]
+
+  def get_file_extname(self, file_path):
+    file_name = os.path.split(file_path)[1]
+    return os.path.splitext(file_name)[1]    
+
+  def get_wiki_file_base_names(self):
+    work_folder         = sublime.active_window().folders()[0]
+    wiki_item_folder    = os.path.join(work_folder, "_miniwiki")
+
+    base_names = []
+    for f in os.listdir(wiki_item_folder):
+      base_name = os.path.splitext(f)[0]
+      base_names.append(base_name)
+    return base_names
