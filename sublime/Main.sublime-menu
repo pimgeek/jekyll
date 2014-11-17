@@ -1,5 +1,6 @@
 [{
     "id": "edit","children":[
-        {"caption": "打开词条清单","command": "get_wiki_items"}
+      {"caption": "新建词条","command": "new_wiki_item"},
+      {"caption": "打开词条清单","command": "get_wiki_items"}
     ]
 }]
