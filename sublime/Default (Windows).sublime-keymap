@@ -1,3 +1,4 @@
 [
-  { "keys": ["ctrl+alt+k"], "command": "get_wiki_items" }
+  { "keys": ["ctrl+alt+k"], "command": "get_wiki_items" },
+  { "keys": ["ctrl+alt+j"], "command": "change_wiki_item_name" }
 ]
