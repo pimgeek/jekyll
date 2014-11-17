@@ -13,9 +13,9 @@ class ChangeWikiItemNameCommand(sublime_plugin.TextCommand):
     current_file_extname   = self.get_file_extname(self.view.file_name())
 
     if wiki_item_folder != current_file_folder:
-      return
+      return sublime.error_message(u"当前文件不是 miniwiki markdown 文件")
     if current_file_extname != ".markdown":
-      return
+      return sublime.error_message(u"当前文件不是 miniwiki markdown 文件")
 
     sublime.active_window().show_input_panel("change current wiki markdown file name", current_file_base_name, self.change_wiki_item_name, None, None)
 
@@ -24,7 +24,7 @@ class ChangeWikiItemNameCommand(sublime_plugin.TextCommand):
     if text == current_file_base_name:
       return
     if text in self.get_wiki_file_base_names():
-      return
+      return sublime.error_message(u"%s 文件已经存在" % text)
 
     current_file_folder = os.path.dirname(self.view.file_name())
     new_file_name = "%s.markdown" % text
