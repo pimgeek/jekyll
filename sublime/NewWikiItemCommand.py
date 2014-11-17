@@ -7,7 +7,7 @@ class NewWikiItemCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     self.WIKI_DIR            = path.join(sublime.active_window().folders()[0], "_miniwiki")
     self.WIKI_DIR_NOT_EXISTS = u"wiki条目文件夹不存在！"
-    self.seINPUT_PANEL_TITLE = u"添加新的wiki条目: "
+    self.INPUT_PANEL_TITLE   = u"添加新的wiki条目: "
     self.ITEM_EXISTS         = u"文件已存在！"
 
     if not path.exists(self.WIKI_DIR):
