@@ -1,33 +1,42 @@
 # coding: utf-8
 import sublime, sublime_plugin, re
 
+class Pattern:
+  def __init__(self, view):
+    self.view        = view
+    self.word_region = self.view.word(self.view.sel()[0].a)
+    delimeter        = self.delimeter()
+
+    if delimeter == ")":
+      self.word_region = self.view.word(self.delimeter_region.a - 5)
+      delimeter        = self.delimeter()
+
+    print(delimeter)
+    self.regex = {
+      "]": "\[(%s)\]\(\w+\.html\)" % self.word,
+      ".": "\[(\w+)\]\(%s\.html\)" % self.word,
+    }.get(delimeter, None)
+
+  def delimeter(self):
+    self.delimeter_region = sublime.Region(self.word_region.b, self.word_region.b + 1)
+    self.word             = self.view.substr(self.word_region)
+    return self.view.substr(self.delimeter_region)
+
 class OpenWikiLinkCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     match = re.search("/_miniwiki/\w+.markdown", self.view.file_name())
 
     if not match: return
 
-    word_region = self.view.word(self.view.sel()[0].a)
-    word        = self.view.substr(word_region)
+    pattern = Pattern(self.view)
 
-    delimeter_region = sublime.Region(word_region.b, word_region.b + 1)
-    delimeter        = self.view.substr(delimeter_region)
+    if not pattern.regex: return
 
-    pattern = self.pattern_from(delimeter, word)
-
-    if not pattern: return
-
-    line_region = self.view.line(word_region)
+    line_region = self.view.line(pattern.word_region)
     line        = self.view.substr(line_region)
-    match       = re.search(pattern, line)
+    line_match  = re.search(pattern.regex, line)
 
-    if not match: return
+    if not line_match: return
 
-    self.view.window().run_command("open_wiki_item", {"item_name": match.group(1)})
+    self.view.window().run_command("open_wiki_item", {"item_name": line_match.group(1)})
 
-  def pattern_from(self, delimeter, word):
-    return {
-      "]": "\[(%s)\]\(\w+\.html\)" % word,
-      ".": "\[(\w+)\]\(%s\.html\)" % word,
-      ")": "\[(\w+)\]\(\w+\.html\)",
-    }[delimeter]
