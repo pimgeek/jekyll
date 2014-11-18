@@ -13,7 +13,7 @@ class Pattern:
 
     self.regex = {
       "]": "\[(%s)\]\(\w+\.html\)" % self.word,
-      ".": "\[(\w+)\]\(%s\.html\)" % self.word,
+      ".": u"\[([\u4e00-\u9fff\w]+)\]\(%s\.html\)" % self.word,
     }.get(delimeter, None)
 
   def delimeter(self):
