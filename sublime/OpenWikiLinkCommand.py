@@ -11,7 +11,6 @@ class Pattern:
       self.word_region = self.view.word(self.delimeter_region.a - 5)
       delimeter        = self.delimeter()
 
-    print(delimeter)
     self.regex = {
       "]": "\[(%s)\]\(\w+\.html\)" % self.word,
       ".": "\[(\w+)\]\(%s\.html\)" % self.word,
