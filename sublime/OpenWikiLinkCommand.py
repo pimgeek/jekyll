@@ -1,5 +1,5 @@
 # coding: utf-8
-import sublime, sublime_plugin, re
+import sublime, sublime_plugin, re, helpers
 
 class Pattern:
   def __init__(self, view):
@@ -23,9 +23,7 @@ class Pattern:
 
 class OpenWikiLinkCommand(sublime_plugin.TextCommand):
   def run(self, edit):
-    match = re.search("/_miniwiki/\w+.markdown", self.view.file_name())
-
-    if not match: return
+    if not helpers.is_wiki_item(): return
 
     pattern = Pattern(self.view)
 
