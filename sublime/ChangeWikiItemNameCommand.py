@@ -1,22 +1,13 @@
 # coding: utf-8
 
-import sublime, sublime_plugin, os, re
+import sublime, sublime_plugin, os, re, helpers
 
 class ChangeWikiItemNameCommand(sublime_plugin.TextCommand):
   def run(self, edit):
-    # 获取工作目录
-    work_folder         = sublime.active_window().folders()[0]
-    wiki_item_folder    = os.path.join(work_folder, "_miniwiki")
-    current_file_folder = os.path.dirname(self.view.file_name())
+    if not helpers.is_wiki_item():
+      return sublime.error_message(u"当前文件不是 miniwiki markdown 文件")
 
     current_file_base_name = self.get_file_base_name(self.view.file_name())
-    current_file_extname   = self.get_file_extname(self.view.file_name())
-
-    if wiki_item_folder != current_file_folder:
-      return sublime.error_message(u"当前文件不是 miniwiki markdown 文件")
-    if current_file_extname != ".markdown":
-      return sublime.error_message(u"当前文件不是 miniwiki markdown 文件")
-
     sublime.active_window().show_input_panel("change current wiki markdown file name", current_file_base_name, self.change_wiki_item_name, None, None)
 
   def change_wiki_item_name(self, text):
