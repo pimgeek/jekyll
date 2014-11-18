@@ -8,7 +8,7 @@ class ChangeWikiItemNameCommand(sublime_plugin.TextCommand):
       return sublime.error_message(u"当前文件不是 miniwiki markdown 文件")
 
     current_file_base_name = self.get_file_base_name(self.view.file_name())
-    sublime.active_window().show_input_panel("change current wiki markdown file name", current_file_base_name, self.change_wiki_item_name, None, None)
+    sublime.active_window().show_input_panel(u"请输入新的词条名称: ", current_file_base_name, self.change_wiki_item_name, None, None)
 
   def change_wiki_item_name(self, text):
     current_file_base_name = self.get_file_base_name(self.view.file_name())

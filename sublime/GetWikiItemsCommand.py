@@ -35,6 +35,7 @@ class GetWikiItemsCommand(sublime_plugin.TextCommand):
       else:
         files.append(_file)
         name = _file.replace(item_folder + "\\", "")
+        name = name.replace('.markdown', '')
         names.append(name)
 
     for _dir in dirs:
