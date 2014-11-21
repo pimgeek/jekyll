@@ -2,9 +2,9 @@
 title: jekyll Mini Wiki
 description: > # this means to ignore newlines until "baseurl:"
   这是基于 jekyll 扩展实现的一个小型 wiki 工具。同时包括了 sublime text 2 的专用插件。可以用来在本地文本编辑工具中快速编辑小型 wiki 系统，并发布到 github page.
-baseurl: "/jekyll-miniwiki" # the subpath of your site, e.g. /blog
+baseurl: "/4ye-wiki" # the subpath of your site, e.g. /blog 
 url: "http://yourdomain.com" # the base hostname & protocol for your site
-github_username: ben7th
+github_username: pimgeek
 
 encoding: UTF-8
 
@@ -20,6 +20,6 @@ redcarpet:
     - fenced_code_blocks
 
 # 以 _miniwiki 文件夹作为词条资源文件夹
-collections: 
+collections:
   miniwiki:
     output: true
