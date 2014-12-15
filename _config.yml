@@ -11,6 +11,11 @@ feed: "/atom.xml"
 github_username: pimgeek
 encoding: UTF-8
 
+# Serving
+detach:       false
+port:         4000
+host:         192.168.1.59
+
 # github 风格 markdown
 highlighter: true
 markdown: redcarpet
@@ -34,43 +39,37 @@ plugins:      ./_plugins
 layouts:      ./_layouts
 paginate:     8
 
-# Serving
-detach:       false
-port:         4000
-host:         192.168.1.59
-baseurl:      "/jekyll" # does not include hostname
-
 #菜单配置
 nav:
   - text: 首页
-    url: "/jekyll/index.html"
+    url: "index.html"
     icon: icon-home
     class: home
   - text: 文章归档
-    url: "/jekyll/archives.html"
+    url: "archives.html"
     icon: icon-reorder
     class: none
   - text: 关于我
-    url: "/jekyll/contact.html"
+    url: "contact.html"
     icon: icon-envelope-alt
     class: none
-  - text: 联系我
-    url: http://pimgeek.github.io
-    icon: icon-heart
-    class: none
-  - text: 博客源代码
-    url: https://github.com/pimgeek/4ye-wiki
-    icon: icon-github
-    class: none
+  # - text: 联系我
+  #   url: http://pimgeek.github.io
+  #   icon: icon-heart
+  #   class: none
+  # - text: 博客源代码
+  #   url: https://github.com/pimgeek/4ye-wiki
+  #   icon: icon-github
+  #   class: none
 
 page:
   - text: 文章分类
-    url: "/jekyll/archives.html"
+    url: "archives.html"
     last: true
   - text: 友情链接
-    url: "/jekyll/links.html"
+    url: "links.html"
     last: true
   - text: 关于我
-    url: "/jekyll/contact.html"
+    url: "contact.html"
     last: false
 

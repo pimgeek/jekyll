@@ -40,7 +40,7 @@
                 {% assign homeClass = 'home ' %}
             {% endif %}
             <li class="{{ homeClass }}{{ active }}">
-                <a href="{{ link.url }}" rel="bookmark" title="{{link.text}}">
+                <a href="{{ site.baseurl }}/{{ link.url }}" rel="bookmark" title="{{link.text}}">
                     <i class="{{ link.icon }}"></i>
                 </a>
                 {{ indicator }}

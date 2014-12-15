@@ -6,7 +6,7 @@ keywords: PIZn, GitHub, Jekyll, Plugins, Works, Archives, Quotes, Violet, css, h
 ---
 
 <p class="lotus-breadcrub">
-    <a href="/jekyll/index.html" rel="nofollow" rel="nofollow" title="首页">Home</a>
+    <a href="{{ site.baseurl }}/index.html" rel="nofollow" rel="nofollow" title="首页">Home</a>
     <span> &gt; </span>
     {{ page.title }}
 </p>
@@ -24,7 +24,7 @@ keywords: PIZn, GitHub, Jekyll, Plugins, Works, Archives, Quotes, Violet, css, h
             <ul>
   {% endif %}
 
-                <li>{{ post.date | date: "%B %e" }} : <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+                <li>{{ post.date | date: "%B %e" }} : <a href="{{ site.baseurl }}/{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
 
   {% if forloop.last %}
             </ul>
