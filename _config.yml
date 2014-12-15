@@ -1,11 +1,14 @@
-# Site settings
-title: jekyll Mini Wiki
+#站点基础配置
+title: 思圆笔记（BETA）
+subtitle: 让思考更圆融
+author:
+  name: pimgeek
 description: > # this means to ignore newlines until "baseurl:"
   这是基于 jekyll 扩展实现的一个小型 wiki 工具。同时包括了 sublime text 2 的专用插件。可以用来在本地文本编辑工具中快速编辑小型 wiki 系统，并发布到 github page.
 baseurl: "/jekyll" # the subpath of your site, e.g. /blog 
 url: "http://pimgeek.github.io" # the base hostname & protocol for your site
+feed: "/atom.xml"
 github_username: pimgeek
-
 encoding: UTF-8
 
 # github 风格 markdown
@@ -23,3 +26,51 @@ redcarpet:
 collections:
   miniwiki:
     output: true
+
+# Where things are
+source:       .
+destination:  ./_site
+plugins:      ./_plugins
+layouts:      ./_layouts
+paginate:     8
+
+# Serving
+detach:       false
+port:         4000
+host:         192.168.1.59
+baseurl:      "/jekyll" # does not include hostname
+
+#菜单配置
+nav:
+  - text: 首页
+    url: "/jekyll/index.html"
+    icon: icon-home
+    class: home
+  - text: 文章归档
+    url: "/jekyll/archives.html"
+    icon: icon-reorder
+    class: none
+  - text: 关于我
+    url: "/jekyll/contact.html"
+    icon: icon-envelope-alt
+    class: none
+  - text: 联系我
+    url: http://pimgeek.github.io
+    icon: icon-heart
+    class: none
+  - text: 博客源代码
+    url: https://github.com/pimgeek/4ye-wiki
+    icon: icon-github
+    class: none
+
+page:
+  - text: 文章分类
+    url: "/jekyll/archives.html"
+    last: true
+  - text: 友情链接
+    url: "/jekyll/links.html"
+    last: true
+  - text: 关于我
+    url: "/jekyll/contact.html"
+    last: false
+
