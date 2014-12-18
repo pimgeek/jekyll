@@ -1,7 +1,0 @@
-// 改这里没有用的！要去 Sublime 的 Package 目录下面改！
-[
-  { "keys": ["ctrl+n"], "command": "new_wiki_item" },
-  { "keys": ["ctrl+l"], "command": "get_wiki_items" },
-  { "keys": ["ctrl+alt+r" ], "command": "change_wiki_item_name" },
-  { "keys": ["ctrl+alt+j" ], "command": "open_wiki_link" }
-]

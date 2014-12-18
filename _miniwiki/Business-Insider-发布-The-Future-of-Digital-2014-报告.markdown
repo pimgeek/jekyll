@@ -2,6 +2,7 @@
 layout: post
 title: Business-Insider-发布-The-Future-of-Digital-2014-报告
 permalink: 1418871208.html
+date: 2014/12/18
 ---
 
 有同事微信转发了一项近期发布的商业/市场报告，供我参考。
