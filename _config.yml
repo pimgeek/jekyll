@@ -2,11 +2,13 @@
 title: 思圆笔记（BETA）
 tagline: 让思考更圆融
 description: > # this means to ignore newlines until "baseurl:"
-  这是基于 jekyll 扩展实现的一个小型 wiki 工具。同时包括了 sublime text 2 的专用插件。可以用来在本地文本编辑工具中快速编辑小型 wiki 系统，并发布到 github page.
+  每一天，努力用好有限的身心能量，在自己的影响圈内完成一些力所能及的，促进有序发展的事。
 # the base hostname & protocol for your site
-url: "http://pimgeek.github.io" 
+url: "http://pimgeek.github.io"
+
 # the subpath of your site, e.g. /blog
-baseurl: "/jekyll"  
+baseurl: "/jekyll"
+
 paginate: 5
 feed: "/atom.xml"
 encoding: UTF-8
