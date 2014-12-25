@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Business-Insider-发布-The-Future-of-Digital-2014-报告
+title: Business Insider 发布 The Future of Digital 2014 报告
 permalink: 1418871208.html
 date: 2014/12/18
 ---

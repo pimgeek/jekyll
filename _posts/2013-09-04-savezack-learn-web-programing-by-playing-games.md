@@ -1,5 +1,6 @@
 ---
 layout: post
+wiki: true
 title: 拯救小扎：边游戏边学 WEB 编程 [搜狗快照]
 ---
 

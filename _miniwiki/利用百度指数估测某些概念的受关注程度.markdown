@@ -1,0 +1,10 @@
+---
+layout: post
+title: 利用百度指数估测关键词的受关注程度
+permalink: 1419399678.html
+date: 2014/12/24
+---
+
+* [知识管理](http://index.baidu.com/?tpl=demand&type=0&area=&time=20130901%7C20141223&word=%D6%AA%CA%B6%B9%DC%C0%ED)
+
+* [html5 教程](http://index.baidu.com/?tpl=demand&type=0&area=&time=20140101%7C20141223&word=html5+%BD%CC%B3%CC)
