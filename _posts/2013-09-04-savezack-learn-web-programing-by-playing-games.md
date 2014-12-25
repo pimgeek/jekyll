@@ -1,7 +1,7 @@
 ---
 layout: post
-wiki: true
 title: 拯救小扎：边游戏边学 WEB 编程 [搜狗快照]
+category: mind
 ---
 
 > 本文来源于 [搜狗搜索快照](http://s.4ye.me/jn0iuM)，为了避免以后快照过期，特此存档。
