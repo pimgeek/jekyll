@@ -37,10 +37,10 @@ layouts:      ./_layouts
 # Serving
 detach:       false
 port:         4000
-host:         192.168.1.59
+host:         0.0.0.0
 
 # github 风格 markdown
-highlighter: true
+highlighter: pygments
 markdown: redcarpet
 redcarpet:
   extensions:
