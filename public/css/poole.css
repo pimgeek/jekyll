@@ -107,6 +107,8 @@ h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 16px;
+  line-height: 28px;
 }
 
 strong {
@@ -118,6 +120,8 @@ strong {
 ul, ol, dl {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 dt {
@@ -232,8 +236,6 @@ img {
   max-width: 100%;
   margin: 0 auto;
   padding: 5px;
-  border-radius: 10px;
-  border: 1px solid gray;
 }
 
 iframe {
