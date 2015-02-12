@@ -50,7 +50,7 @@ body {
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 34px;
 }
 @media (min-width: 38em) {
   html {
@@ -120,8 +120,8 @@ strong {
 ul, ol, dl {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 30px;
 }
 
 dt {
