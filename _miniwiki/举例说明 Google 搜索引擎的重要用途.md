@@ -2,7 +2,7 @@
 layout: post
 title: 举例说明 Google 搜索引擎的重要用途
 permalink: 1424027382.html
-date: 2013/12/12
+date: 2013/12/31
 ---
 
 为了让读者对搜索引擎的重要性产生感性认识，我试着举例说明。
